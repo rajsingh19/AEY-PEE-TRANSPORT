@@ -24,8 +24,8 @@ export default function Navbar({ activePage }: NavbarProps) {
           />
           <div className="brand-text flex flex-col justify-center">
             <h1 className="company-title font-outfit text-[17px] sm:text-[18px] font-bold leading-[1.25] text-[#111827] tracking-tight">
-              <span className="block">Aey-Pee Transport</span>
-              <span className="block">Company Pvt. Ltd.</span>
+             <span className="block">Aey-Pee Transport</span>  
+            {/* <span className="block">Company Pvt. Ltd.</span>*/}
             </h1>
             <p className="company-tagline text-[10.5px] sm:text-[11px] font-bold text-[#D71920] uppercase tracking-[0.8px] mt-[2px]">
               Delivering Trust. Moving India.

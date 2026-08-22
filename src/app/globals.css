@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Ensure primary text color is Aey-Pee red for readability */
+.text-primary { --tw-text-opacity: 1; color: #D71920; }
+
+/* Fix readability: ensure text-dark-light is dark enough */
+.text-dark-light {
+  --tw-text-opacity: 1;
+  color: #111827;
+}

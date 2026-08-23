@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import { Phone, Building2, MapPin, Mail, Clock, ShieldCheck } from "lucide-react";
+import { Phone, Building2, MapPin, Mail, Clock, ShieldCheck, ExternalLink } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -195,25 +195,36 @@ export default function ContactPage() {
           <div className="bg-white rounded-[24px] border border-black/[0.03] shadow-[0_12px_40px_rgba(0,0,0,0.03)] p-8 sm:p-10 flex flex-col justify-between gap-6 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(215,25,32,0.06)]">
             
             {/* Header */}
-            <div className="flex flex-col items-start">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FFF5F5] flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-[#D71920]" strokeWidth={2.5} />
+            <div className="flex items-center justify-between">
+              <div className="flex flex-col items-start">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-[#FFF5F5] flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-[#D71920]" strokeWidth={2.5} />
+                  </div>
+                  <h3 className="font-outfit text-[17px] font-extrabold tracking-wider text-[#111827]">
+                    FIND US
+                  </h3>
                 </div>
-                <h3 className="font-outfit text-[17px] font-extrabold tracking-wider text-[#111827]">
-                  FIND US
-                </h3>
+                <div className="flex gap-1 mt-2.5 mb-2 pl-[52px]">
+                  <div className="w-6 h-[2.5px] bg-[#D71920]"></div>
+                  <div className="w-4 h-[2.5px] bg-[#D71920]/60"></div>
+                </div>
               </div>
-              <div className="flex gap-1 mt-2.5 mb-2 pl-[52px]">
-                <div className="w-6 h-[2.5px] bg-[#D71920]"></div>
-                <div className="w-4 h-[2.5px] bg-[#D71920]/60"></div>
-              </div>
+              <a
+                href="https://maps.google.com/?q=22.2136,73.0768"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[12px] font-bold text-[#D71920] hover:bg-[#D71920] hover:text-white flex items-center gap-1.5 bg-[#FFF5F5] px-3.5 py-1.5 rounded-full border border-[#D71920]/15 transition-all duration-200 shadow-sm"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Open Maps
+              </a>
             </div>
 
             {/* Interactive Google Maps Iframe */}
-            <div className="w-full h-[380px] rounded-[18px] overflow-hidden border border-black/[0.06] relative z-10">
+            <div className="w-full h-[380px] rounded-[18px] overflow-hidden border border-black/[0.06] relative z-10 bg-slate-100">
               <iframe
-                src="https://maps.google.com/maps?q=22.2136,73.0768+(AEY-PEE+TRANSPORT+COMPANY+PVT.+LTD.)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                src="https://maps.google.com/maps?q=22.2136,73.0768+(AEY-PEE+TRANSPORT+COMPANY+PVT.+LTD.)&t=&z=14&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

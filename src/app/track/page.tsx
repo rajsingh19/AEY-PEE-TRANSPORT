@@ -66,6 +66,7 @@ export default function TrackPage() {
             background: "linear-gradient(to right, #FFF7F7 0%, rgba(255,247,247,0.75) 4%, rgba(255,247,247,0.25) 12%, transparent 20%)",
             pointerEvents: "none",
           }} />
+
         </div>
 
         {/* ─── HERO CONTENT (LEFT SIDE) ─── */}

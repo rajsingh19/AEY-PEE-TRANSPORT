@@ -100,11 +100,11 @@ export default function TrackPage() {
             </p>
 
             {/* Heading */}
-            <h1 style={{ margin: "0 0 10px 0", padding: 0, lineHeight: 1.06, fontWeight: 900, fontFamily: "var(--font-geist-sans), sans-serif" }}>
-              <span className="track-heading-line" style={{ display: "block", fontSize: "40px", color: "#111827" }}>
+            <h1 style={{ margin: "0 0 10px 0", padding: 0, lineHeight: 1.15, fontWeight: 900, fontFamily: "var(--font-geist-sans), sans-serif" }}>
+              <span className="track-heading-line" style={{ display: "block", fontSize: "30px", color: "#111827" }}>
                 Track Your Shipment.
               </span>
-              <span className="track-heading-line" style={{ display: "block", fontSize: "40px", color: "#D71920" }}>
+              <span className="track-heading-line" style={{ display: "block", fontSize: "30px", color: "#D71920" }}>
                 Stay Updated, Always.
               </span>
             </h1>
@@ -184,13 +184,13 @@ export default function TrackPage() {
         @media (max-width: 1280px) {
           .track-video-wrapper { width: 60% !important; }
           .track-card { width: 420px !important; padding: 28px 30px !important; }
-          .track-heading-line { font-size: 36px !important; }
+          .track-heading-line { font-size: 28px !important; }
         }
         @media (max-width: 1024px) {
           .track-hero { min-height: 520px !important; }
           .track-video-wrapper { width: 56% !important; }
           .track-card { width: 380px !important; padding: 26px 24px !important; }
-          .track-heading-line { font-size: 32px !important; }
+          .track-heading-line { font-size: 26px !important; }
           .track-cards-wrapper { margin-top: -30px !important; }
           .track-cards-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
@@ -220,7 +220,7 @@ export default function TrackPage() {
             max-width: 480px !important;
             padding: 24px 20px !important;
           }
-          .track-heading-line { font-size: 32px !important; }
+          .track-heading-line { font-size: 26px !important; }
           .track-cards-wrapper {
             margin-top: 0 !important;
             padding: 0 16px 32px !important;
@@ -233,7 +233,7 @@ export default function TrackPage() {
           .track-video-wrapper {
             height: 240px !important;
           }
-          .track-heading-line { font-size: 28px !important; }
+          .track-heading-line { font-size: 24px !important; }
           .track-form {
             flex-direction: column !important;
           }

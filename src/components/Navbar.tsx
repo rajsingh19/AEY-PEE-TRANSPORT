@@ -108,10 +108,10 @@ export default function Navbar({ activePage }: NavbarProps) {
           </button>
 
           {/* Track Now Button - Large Red Rounded Button with Globe */}
-          <a href="#" className="btn-track-now inline-flex items-center gap-2 bg-[#D71920] hover:bg-[#C90016] text-white py-3 px-6 rounded-lg text-[13.5px] font-bold tracking-[0.5px] shadow-[0_4px_12px_rgba(215,25,32,0.12)] hover:scale-102 hover:shadow-[0_6px_18px_rgba(215,25,32,0.22)] transition-all duration-300" id="btn-track-now">
+          <Link href="/track" className="btn-track-now inline-flex items-center gap-2 bg-[#D71920] hover:bg-[#C90016] text-white py-3 px-6 rounded-lg text-[13.5px] font-bold tracking-[0.5px] shadow-[0_4px_12px_rgba(215,25,32,0.12)] hover:scale-102 hover:shadow-[0_6px_18px_rgba(215,25,32,0.22)] transition-all duration-300" id="btn-track-now">
             <Globe className="w-[18px] h-[18px]" strokeWidth={2.5} />
             <span>TRACK NOW</span>
-          </a>
+          </Link>
 
           {/* Mobile Menu Toggle */}
           <button 

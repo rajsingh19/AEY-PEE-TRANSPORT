@@ -262,7 +262,7 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
         alignItems: "center",
         textAlign: "center",
         overflow: "hidden",
-        background: "#FFF7F7",
+        background: "#ffffffff",
         borderRadius: "16px",
         border: "1px solid rgba(215,25,32,0.07)",
         boxShadow: "0 4px 18px rgba(0,0,0,0.05)",

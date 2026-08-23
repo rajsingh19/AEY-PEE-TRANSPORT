@@ -128,12 +128,15 @@ export default function ContactPage() {
               {/* Vertical divider */}
               <div className="hidden md:block w-[1px] bg-black/[0.06] self-stretch"></div>
 
-              {/* Col 2 */}
-              <div className="pl-6 flex flex-col gap-8">
+              {/* Col 2 (With Timeline Vertical Line Connector) */}
+              <div className="relative pl-6 flex flex-col gap-8">
                 
+                {/* Timeline connector line passing exactly through the center of circles */}
+                <div className="absolute left-[42px] top-6 bottom-6 w-[1.5px] bg-[#D71920]/15 z-0"></div>
+
                 {/* ANKLESHWAR BRANCH */}
-                <div className="flex gap-4">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
+                <div className="relative flex gap-4 z-10">
+                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
                     <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col">
@@ -145,8 +148,8 @@ export default function ContactPage() {
                 </div>
 
                 {/* AHMEDABAD BRANCH */}
-                <div className="flex gap-4">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
+                <div className="relative flex gap-4 z-10">
+                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
                     <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col">
@@ -158,8 +161,8 @@ export default function ContactPage() {
                 </div>
 
                 {/* VAPI BRANCH */}
-                <div className="flex gap-4">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
+                <div className="relative flex gap-4 z-10">
+                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
                     <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col">
@@ -171,8 +174,8 @@ export default function ContactPage() {
                 </div>
 
                 {/* RAJKOT BRANCH */}
-                <div className="flex gap-4">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
+                <div className="relative flex gap-4 z-10">
+                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
                     <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
                   </div>
                   <div className="flex flex-col">

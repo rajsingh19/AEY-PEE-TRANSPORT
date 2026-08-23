@@ -1,9 +1,123 @@
 "use client";
 
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import { Phone, Building2, MapPin, Mail, Clock, ShieldCheck, ExternalLink } from "lucide-react";
 
+interface Office {
+  id: string;
+  title: string;
+  address: string;
+  mapQuery: string;
+  details?: { label: string; value: string; href?: string }[];
+}
+
+const officesCol1: Office[] = [
+  {
+    id: "head-office",
+    title: "HEAD OFFICE",
+    address: "301, Sterling Chamber, Poona Street, Dara Bunder, Mumbai - 400 009.",
+    mapQuery: "301, Sterling Chamber, Poona Street, Dara Bunder, Mumbai - 400 009",
+    details: [
+      { label: "Email", value: "contact@aeypeetransport.com", href: "mailto:contact@aeypeetransport.com" },
+      { label: "Landline", value: "022-23707008" },
+      { label: "Mobile", value: "09324414168" },
+    ],
+  },
+  {
+    id: "bhiwandi",
+    title: "BHIWANDI BRANCH",
+    address: "Godown No.3, Metro Complex, D'Souza Compound, Near - Annapurna Hotel, Purna Village, Bhiwandi",
+    mapQuery: "Metro Complex, D'Souza Compound, Purna Village, Bhiwandi",
+  },
+  {
+    id: "ulhasnagar",
+    title: "ULHASNAGAR BRANCH",
+    address: "A/3-New Priya Darshani CHS, C-Block, Shahad Station Road, Ulhasnagar - 421003",
+    mapQuery: "A/3-New Priya Darshani CHS, C-Block, Shahad Station Road, Ulhasnagar - 421003",
+  },
+];
+
+const officesCol2: Office[] = [
+  {
+    id: "ankleshwar",
+    title: "ANKLESHWAR BRANCH",
+    address: "PLOT No: B-65, Sunder Residency, Gadholi Ankleshwar",
+    mapQuery: "PLOT No: B-65, Sunder Residency, Gadholi Ankleshwar",
+  },
+  {
+    id: "ahmedabad",
+    title: "AHMEDABAD BRANCH",
+    address: "House No.23, Krishna Villa Society, Lamba Turning - Narol - Aslali Road, Gujarat",
+    mapQuery: "Krishna Villa Society, Lamba Turning, Narol, Aslali Road, Gujarat",
+  },
+  {
+    id: "vapi",
+    title: "VAPI BRANCH",
+    address: "Room No-104, Hiral Jyoti HIRAL PARK, Nutan Nagar, Vapi, Dist - Valsad",
+    mapQuery: "Hiral Jyoti HIRAL PARK, Nutan Nagar, Vapi, Valsad",
+  },
+  {
+    id: "rajkot",
+    title: "RAJKOT BRANCH",
+    address: "Mani Deep Chamber, Office No-01, 1st floor, Opposite BOI, Kunrvada Road, Rajkot-360003",
+    mapQuery: "Mani Deep Chamber, Kunrvada Road, Rajkot-360003",
+  },
+];
+
 export default function ContactPage() {
+  // Ulhasnagar Branch as default selected map location
+  const [selectedOffice, setSelectedOffice] = useState<Office>(officesCol1[2]);
+
+  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(selectedOffice.mapQuery + " (AEY-PEE TRANSPORT COMPANY PVT. LTD.)")}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const openMapsUrl = `https://maps.google.com/?q=${encodeURIComponent(selectedOffice.mapQuery)}`;
+
+  const renderOfficeItem = (office: Office) => {
+    const isSelected = selectedOffice.id === office.id;
+    return (
+      <div
+        key={office.id}
+        onClick={() => setSelectedOffice(office)}
+        className="relative flex gap-4 z-10 cursor-pointer group rounded-lg p-1.5 -ml-1.5 transition-all duration-200 hover:bg-slate-50/80"
+        title="Click to view location on map"
+      >
+        <div className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 transition-all ${
+          isSelected 
+            ? "border-[#D71920] ring-2 ring-[#D71920]/20 shadow-[0_2px_8px_rgba(215,25,32,0.15)]" 
+            : "border-[#D71920]/10 shadow-[0_2px_4px_rgba(215,25,32,0.04)] group-hover:border-[#D71920]/30"
+        }`}>
+          <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
+        </div>
+        <div className="flex flex-col">
+          <h4 className={`text-[13.5px] font-extrabold tracking-tight transition-colors ${
+            isSelected ? "text-[#D71920]" : "text-[#111827] group-hover:text-[#D71920]"
+          }`}>
+            {office.title}
+          </h4>
+          <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
+            {office.address}
+          </p>
+          {office.details && (
+            <div className="text-[12px] text-dark-light mt-1.5 leading-relaxed font-medium">
+              {office.details.map((detail, idx) => (
+                <div key={idx}>
+                  {detail.label}:{" "}
+                  {detail.href ? (
+                    <a href={detail.href} onClick={(e) => e.stopPropagation()} className="text-[#D71920] hover:underline">
+                      {detail.value}
+                    </a>
+                  ) : (
+                    detail.value
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-[#FFF7F7]">
       {/* 1. STICKY NAVBAR */}
@@ -75,118 +189,22 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 sm:gap-8 items-stretch pt-2">
               
               {/* Col 1 (With Timeline Vertical Line Connector) */}
-              <div className="relative pl-6 flex flex-col gap-8">
-                
-                {/* Timeline connector line passing exactly through the center of circles */}
-                <div className="absolute left-[42px] top-6 bottom-6 w-[1.5px] bg-[#D71920]/15 z-0"></div>
-
-                {/* HEAD OFFICE */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">HEAD OFFICE</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      301, Sterling Chamber, Poona Street, Dara Bunder, Mumbai - 400 009.
-                    </p>
-                    <div className="text-[12px] text-dark-light mt-1.5 leading-relaxed font-medium">
-                      <div>Email: <a href="mailto:contact@aeypeetransport.com" className="text-[#D71920] hover:underline">contact@aeypeetransport.com</a></div>
-                      <div>Landline: 022-23707008</div>
-                      <div>Mobile: 09324414168</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* BHIWANDI BRANCH */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">BHIWANDI BRANCH</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      Godown No.3, Metro Complex, D'Souza Compound, Near - Annapurna Hotel, Purna Village, Bhiwandi
-                    </p>
-                  </div>
-                </div>
-
-                {/* ULHASNAGAR BRANCH */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">ULHASNAGAR BRANCH</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      A/3-New Priya Darshani CHS, C-Block, Shahad Station Road, Ulhasnagar - 421003
-                    </p>
-                  </div>
-                </div>
+              <div className="relative pl-6 flex flex-col gap-6">
+                {/* Timeline connector line */}
+                <div className="absolute left-[36px] top-6 bottom-6 w-[1.5px] bg-[#D71920]/15 z-0"></div>
+                {officesCol1.map(renderOfficeItem)}
               </div>
 
               {/* Vertical divider */}
               <div className="hidden md:block w-[1px] bg-black/[0.06] self-stretch"></div>
 
               {/* Col 2 (With Timeline Vertical Line Connector) */}
-              <div className="relative pl-6 flex flex-col gap-8">
-                
-                {/* Timeline connector line passing exactly through the center of circles */}
-                <div className="absolute left-[42px] top-6 bottom-6 w-[1.5px] bg-[#D71920]/15 z-0"></div>
-
-                {/* ANKLESHWAR BRANCH */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">ANKLESHWAR BRANCH</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      PLOT No: B-65, Sunder Residency, Gadholi Ankleshwar
-                    </p>
-                  </div>
-                </div>
-
-                {/* AHMEDABAD BRANCH */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">AHMEDABAD BRANCH</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      House No.23, Krishna Villa Society, Lamba Turning - Narol - Aslali Road, Gujarat
-                    </p>
-                  </div>
-                </div>
-
-                {/* VAPI BRANCH */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">VAPI BRANCH</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      Room No-104, Hiral Jyoti HIRAL PARK, Nutan Nagar, Vapi, Dist - Valsad
-                    </p>
-                  </div>
-                </div>
-
-                {/* RAJKOT BRANCH */}
-                <div className="relative flex gap-4 z-10">
-                  <div className="w-9 h-9 rounded-full bg-[#FFF5F5] border border-[#D71920]/10 flex items-center justify-center shrink-0 mt-0.5 bg-white z-10 shadow-[0_2px_4px_rgba(215,25,32,0.04)]">
-                    <Building2 className="w-4.5 h-4.5 text-[#D71920]" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="text-[13.5px] font-extrabold text-[#111827] tracking-tight">RAJKOT BRANCH</h4>
-                    <p className="text-[12.5px] text-dark-light leading-relaxed mt-1 font-normal">
-                      Mani Deep Chamber, Office No-01, 1st floor, Opposite BOI, Kunrvada Road, Rajkot-360003
-                    </p>
-                  </div>
-                </div>
-
+              <div className="relative pl-6 flex flex-col gap-6">
+                {/* Timeline connector line */}
+                <div className="absolute left-[36px] top-6 bottom-6 w-[1.5px] bg-[#D71920]/15 z-0"></div>
+                {officesCol2.map(renderOfficeItem)}
               </div>
+
             </div>
 
           </div>
@@ -195,7 +213,7 @@ export default function ContactPage() {
           <div className="bg-white rounded-[24px] border border-black/[0.03] shadow-[0_12px_40px_rgba(0,0,0,0.03)] p-8 sm:p-10 flex flex-col justify-between gap-6 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(215,25,32,0.06)]">
             
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-4">
               <div className="flex flex-col items-start">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[#FFF5F5] flex items-center justify-center shrink-0">
@@ -211,10 +229,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <a
-                href="https://maps.google.com/?q=22.2136,73.0768"
+                href={openMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[12px] font-bold text-[#D71920] hover:bg-[#D71920] hover:text-white flex items-center gap-1.5 bg-[#FFF5F5] px-3.5 py-1.5 rounded-full border border-[#D71920]/15 transition-all duration-200 shadow-sm"
+                className="text-[12px] font-bold text-[#D71920] hover:bg-[#D71920] hover:text-white flex items-center gap-1.5 bg-[#FFF5F5] px-3.5 py-1.5 rounded-full border border-[#D71920]/15 transition-all duration-200 shadow-sm shrink-0"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 Open Maps
@@ -224,14 +242,15 @@ export default function ContactPage() {
             {/* Interactive Google Maps Iframe */}
             <div className="w-full h-[380px] rounded-[18px] overflow-hidden border border-black/[0.06] relative z-10 bg-slate-100">
               <iframe
-                src="https://maps.google.com/maps?q=22.2136,73.0768+(AEY-PEE+TRANSPORT+COMPANY+PVT.+LTD.)&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                key={selectedOffice.id}
+                src={mapSrc}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                title="AEY-PEE TRANSPORT COMPANY PVT. LTD. Location"
+                title={`${selectedOffice.title} Location`}
               />
             </div>
 
@@ -240,9 +259,14 @@ export default function ContactPage() {
               <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_6px_rgba(215,25,32,0.06)]">
                 <MapPin className="w-5 h-5 text-[#D71920]" strokeWidth={2.5} />
               </div>
-              <p className="text-[12.5px] text-[#111827] font-medium leading-relaxed">
-                Padli, Near Parhil-Monti Yadav Road, Taluka Padra, District Vadodara, Gujarat - 391440
-              </p>
+              <div className="flex flex-col">
+                <span className="text-[11px] font-bold text-[#D71920] uppercase tracking-wider">
+                  {selectedOffice.title}
+                </span>
+                <p className="text-[12.5px] text-[#111827] font-medium leading-relaxed mt-0.5">
+                  {selectedOffice.address}
+                </p>
+              </div>
             </div>
 
           </div>

@@ -207,44 +207,18 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Interactive Iframe Map Wrapper */}
-            <div className="relative w-full h-[350px] rounded-[16px] overflow-hidden border border-black/[0.06] z-10">
-              <iframe 
-                src="https://www.openstreetmap.org/export/embed.html?bbox=73.05%2C22.18%2C73.12%2C22.24&amp;layer=mapnik&amp;marker=22.2136%2C73.0768"
-                className="w-full h-full border-0 z-10"
-                title="Aey-Pee Transport Map Location"
+            {/* Interactive Google Maps Iframe */}
+            <div className="w-full h-[380px] rounded-[18px] overflow-hidden border border-black/[0.06] relative z-10">
+              <iframe
+                src="https://maps.google.com/maps?q=22.2136,73.0768+(AEY-PEE+TRANSPORT+COMPANY+PVT.+LTD.)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
                 allowFullScreen
-              ></iframe>
-              
-              {/* Map Info Box Overlay (floats on top-left) */}
-              <div className="absolute top-4 left-4 z-20 bg-white p-4 rounded-lg shadow-lg border border-black/[0.08] max-w-[280px] select-none pointer-events-auto">
-                <h4 className="text-[11px] font-extrabold text-[#111827] leading-tight tracking-tight uppercase">
-                  AEY-PEE TRANSPORT COMPANY PVT. LTD.
-                </h4>
-                <div className="flex items-center gap-1 mt-1 text-[11px] text-[#D71920] font-bold">
-                  <span>3.8</span>
-                  <span>★★★★☆</span>
-                  <span className="text-dark-light font-normal">(25)</span>
-                </div>
-                <div className="flex gap-3 mt-3 text-[11px] font-bold border-t border-black/[0.05] pt-2">
-                  <a 
-                    href="https://www.google.com/dir/??" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-[#D71920] hover:underline"
-                  >
-                    Directions
-                  </a>
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=22.2136,73.0768" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-[#D71920] hover:underline"
-                  >
-                    View larger map
-                  </a>
-                </div>
-              </div>
+                referrerPolicy="no-referrer-when-downgrade"
+                title="AEY-PEE TRANSPORT COMPANY PVT. LTD. Location"
+              />
             </div>
 
             {/* Location Address Bar under Map */}

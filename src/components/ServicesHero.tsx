@@ -5,12 +5,12 @@ import Image from "next/image";
 export default function ServicesHero() {
   return (
     <section 
-      className="relative w-full grid grid-cols-1 lg:grid-cols-[32%_68%] bg-white overflow-hidden z-10 lg:h-[24vw]" 
+      className="relative w-full grid grid-cols-1 lg:grid-cols-[32%_68%] bg-[#FFF7F7] overflow-hidden z-10 lg:h-[24vw]" 
       id="services-hero"
     >
       
       {/* LEFT 32% COLUMN - Clean white background for the text */}
-      <div className="bg-white flex items-center p-8 sm:p-12 lg:pl-[12%] lg:pr-4 z-20">
+      <div className="bg-[#FFF7F7] flex items-center p-8 sm:p-12 lg:pl-[12%] lg:pr-4 z-20">
         <div className="w-full flex flex-col justify-center animate-slide-up">
           
           {/* Label and red underline */}

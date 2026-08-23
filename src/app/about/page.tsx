@@ -5,7 +5,7 @@ import { Award, Truck, Users, ShieldCheck, Building2, Target, Star, Check } from
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7F8FA]">
+    <div className="flex flex-col min-h-screen bg-[#FFF7F7]">
       {/* 1. WHITE NAVBAR - Stacking priority z-50 */}
       <div className="relative z-50 bg-white border-b border-black/[0.03]">
         <Navbar activePage="about" />
@@ -23,7 +23,7 @@ export default function AboutPage() {
       >
         
         {/* LEFT 32% COLUMN - Clean white background for the text */}
-        <div className="bg-white flex items-center p-8 sm:p-12 lg:pl-[8%] lg:pr-6 z-20">
+        <div className="bg-[#FFF5F5] flex items-center p-8 sm:p-12 lg:pl-[8%] lg:pr-6 z-20">
           <div className="w-full flex flex-col justify-center animate-slide-up">
             
             {/* Label and red underline */}
@@ -63,8 +63,8 @@ export default function AboutPage() {
             poster="/fallback_truck.jpg"
             style={{
                 objectPosition: "center center",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,1) 10%)",
-                maskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,1) 10%)"
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgb(255, 255, 255) 5%)",
+                maskImage: "linear-gradient(to right, transparent 0%, rgb(226, 109, 109) 10%)"
               }}
           >
             <source src="/AP2.mp4" type="video/mp4" />
@@ -81,7 +81,7 @@ export default function AboutPage() {
         3. LIGHT/WHITE PAGE BACKGROUND (Below Hero Section)
         Stats Bar Card and Lower Content Cards are nested here with clear visual separation.
       */}
-      <main className="flex-1 w-full max-w-[1450px] mx-auto px-6 md:px-12 pb-[48px] flex flex-col gap-8 relative z-20 bg-[#F7F8FA]">
+      <main className="flex-1 w-full max-w-[1450px] mx-auto px-6 md:px-12 pb-[48px] flex flex-col gap-8 relative z-20 bg-transparent">
         
         {/* WHITE FLOATING STATS BAR OVERLAPPING HERO BOTTOM */}
         <div className="bg-white rounded-[20px] border border-black/[0.04] shadow-[0_8px_30px_rgba(0,0,0,0.03)] grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-4 p-7 lg:py-6 lg:px-8 relative z-30 -mt-[40px] items-center" id="about-stats-bar">

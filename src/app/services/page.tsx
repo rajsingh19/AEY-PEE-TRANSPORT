@@ -8,10 +8,10 @@ import FleetCard from "@/components/FleetCard";
 
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7F8FA]">
+    <div className="flex flex-col min-h-screen bg-[#FFF7F7]">
       
       {/* 1. WHITE NAVBAR - Stacking priority z-50 */}
-      <div className="relative z-50 bg-white border-b border-black/[0.03]">
+      <div className="relative z-50 bg-[#FFF7F7] border-b border-black/[0.03]">
         <Navbar activePage="services" />
       </div>
 

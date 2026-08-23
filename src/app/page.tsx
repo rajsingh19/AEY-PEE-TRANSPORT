@@ -19,7 +19,7 @@ export default function HomePage() {
           loop
           playsInline
           preload="auto"
-          poster="/fallback_truck.jpg"
+          poster="/fallback_home.jpg"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/TRUCK-VIDEO.mp4" type="video/mp4" />

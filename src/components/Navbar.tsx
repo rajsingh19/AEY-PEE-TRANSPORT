@@ -73,31 +73,34 @@ export default function Navbar({ activePage }: NavbarProps) {
               </Link>
             </li>
             <li>
-              <a 
-                href="#" 
-                className="nav-item text-[13.5px] font-bold tracking-[0.3px] text-dark-light hover:text-[#D71920] transition-colors py-2.5 px-3.5"
+              <Link 
+                href="/track" 
+                className={`nav-item text-[13.5px] font-bold tracking-[0.3px] transition-colors py-2.5 px-3.5 rounded-[20px] ${
+                  activePage === "consignment" 
+                    ? "bg-[#D71920] text-white shadow-[0_3px_8px_rgba(215,25,32,0.15)] hover:bg-[#D71920]/90" 
+                    : "text-dark-light hover:text-[#D71920]"
+                }`}
               >
                 TRACK CONSIGNMENT
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link 
+                href="/contact" 
+                className={`nav-item text-[13.5px] font-bold tracking-[0.3px] transition-colors py-2.5 px-3.5 rounded-[20px] ${
+                  activePage === "contact" 
+                    ? "bg-[#D71920] text-white shadow-[0_3px_8px_rgba(215,25,32,0.15)] hover:bg-[#D71920]/90" 
+                    : "text-dark-light hover:text-[#D71920]"
+                }`}
+              >
+                CONTACT
+              </Link>
             </li>
           </ul>
         </nav>
 
         {/* NAVIGATION ACTIONS (RIGHT) */}
         <div className="nav-actions flex items-center gap-3 sm:gap-4 shrink-0">
-          
-          {/* Red Rounded CONTACT button on the Right side */}
-          <Link 
-            href="/contact" 
-            className={`btn-contact-nav hidden lg:inline-flex items-center justify-center text-[13.5px] font-bold tracking-[0.5px] py-2.5 px-6 rounded-[20px] transition-all duration-300 ${
-              activePage === "contact"
-                ? "bg-[#C90016] text-white shadow-[0_3px_8px_rgba(215,25,32,0.25)]"
-                : "bg-[#D71920] text-white hover:bg-[#C90016] shadow-[0_3px_8px_rgba(215,25,32,0.15)] hover:shadow-[0_4px_12px_rgba(215,25,32,0.25)] hover:scale-102"
-            }`}
-            id="btn-contact-nav"
-          >
-            CONTACT
-          </Link>
 
           {/* Search Button - Light Bordered Rounded Square */}
           <button className="action-search hidden sm:flex items-center justify-center w-11 h-11 rounded-lg border border-black/[0.08] hover:bg-black/[0.04] text-[#111827] transition-all duration-300 hover:scale-105" aria-label="Search" id="btn-search">
@@ -164,12 +167,16 @@ export default function Navbar({ activePage }: NavbarProps) {
               </Link>
             </li>
             <li>
-              <a 
-                href="#" 
-                className="block w-full py-2.5 px-4 font-bold text-dark-light hover:text-[#D71920] hover:bg-gray-50 rounded-lg text-sm transition-colors"
+              <Link 
+                href="/track" 
+                className={`block w-full py-2.5 px-4 font-bold rounded-lg text-sm transition-colors ${
+                  activePage === "consignment"
+                    ? "bg-[#D71920] text-white"
+                    : "text-dark-light hover:text-[#D71920] hover:bg-gray-50"
+                }`}
               >
                 TRACK CONSIGNMENT
-              </a>
+              </Link>
             </li>
             <li>
               <Link 

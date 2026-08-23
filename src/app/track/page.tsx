@@ -47,7 +47,7 @@ export default function TrackPage() {
         }}>
           <video
             autoPlay muted loop playsInline preload="auto"
-            poster="/fallback_truck.jpg"
+            poster="/TRACK_FALLBACK.png"
             style={{
               width: "100%",
               height: "100%",

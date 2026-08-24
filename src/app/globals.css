@@ -49,3 +49,32 @@ body {
   background: rgba(215, 25, 32, 0.35);
 }
 
+/* CHAT NOW pill entrance and subtle breathing animation */
+@keyframes chatPillEntranceAndFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2.5px);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animate-chat-pill-float {
+  animation: chatPillEntranceAndFloat 3.8s ease-out infinite;
+}
+
+

@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import {
   Minus,
   X,
-  Bot,
   CheckCheck,
   Truck,
   Package,
@@ -13,9 +13,7 @@ import {
   MessageCircle,
   Paperclip,
   Send,
-  Sparkles,
-  ExternalLink,
-  RotateCcw
+  ExternalLink
 } from "lucide-react";
 
 interface Message {
@@ -28,6 +26,7 @@ interface Message {
 }
 
 export default function ChatWidget() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -194,7 +193,7 @@ export default function ChatWidget() {
         botResponseHtml = (
           <div>
             <p className="text-xs text-[#111827]">
-              Sure! Please type your question regarding rates, routes, billing, or fleet bookings, and I'll help you right away.
+              Sure! Please type your question regarding rates, routes, billing, or fleet bookings, and I&apos;ll help you right away.
             </p>
           </div>
         );
@@ -254,9 +253,10 @@ export default function ChatWidget() {
     }
   };
 
-  const resetConversation = () => {
-    setMessages([initialWelcomeMessage]);
-  };
+  // Do not display chatbot on the home page
+  if (pathname === "/") {
+    return null;
+  }
 
   return (
     <>
@@ -266,13 +266,13 @@ export default function ChatWidget() {
           onClick={() => setIsOpen(true)}
           id="floating-chat-trigger"
           aria-label="Open Aey-Pee Assistant"
-          className="fixed right-6 bottom-6 z-50 w-[58px] h-[58px] rounded-full bg-[#D71920] hover:bg-[#C0151B] text-white flex items-center justify-center shadow-[0_10px_30px_rgba(215,25,32,0.4)] transition-all duration-300 hover:scale-108 active:scale-95 cursor-pointer group"
+          className="fixed right-5 bottom-5 sm:right-8 sm:bottom-7 z-50 w-[72px] h-[72px] sm:w-[76px] sm:h-[76px] rounded-full bg-white border border-black/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_36px_rgba(215,25,32,0.28)] flex items-center justify-center transition-all duration-300 hover:scale-106 active:scale-95 cursor-pointer group"
         >
-          <Bot className="w-7 h-7 text-white transition-transform group-hover:scale-110" />
-          <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-white border-2 border-[#D71920]"></span>
-          </span>
+          <img
+            src="/chatbot.gif"
+            alt="Chatbot"
+            className="w-[50px] h-[50px] sm:w-[54px] sm:h-[54px] object-contain transition-transform duration-300 group-hover:scale-110"
+          />
         </button>
       )}
 
@@ -403,8 +403,8 @@ export default function ChatWidget() {
                   return (
                     <div key={msg.id} className="flex items-start gap-3 max-w-[92%] sm:max-w-[84%] animate-in fade-in slide-in-from-left-2 duration-300">
                       {/* Bot Avatar */}
-                      <div className="w-[36px] h-[36px] sm:w-[38px] sm:h-[38px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-red-50">
-                        <Bot className="w-5 h-5 text-[#D71920]" />
+                      <div className="w-[36px] h-[36px] sm:w-[38px] sm:h-[38px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-red-50 overflow-hidden">
+                        <img src="/chatbot.gif" alt="Chatbot" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
                       </div>
 
                       {/* Bot Message Bubble */}
@@ -443,8 +443,8 @@ export default function ChatWidget() {
               {/* Bot Typing Indicator */}
               {isTyping && (
                 <div className="flex items-start gap-3 max-w-[80%] animate-in fade-in duration-200">
-                  <div className="w-[36px] h-[36px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-red-50">
-                    <Bot className="w-5 h-5 text-[#D71920]" />
+                  <div className="w-[36px] h-[36px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-red-50 overflow-hidden">
+                    <img src="/chatbot.gif" alt="Chatbot" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
                   </div>
                   <div className="bg-white rounded-[16px] rounded-tl-sm px-4 py-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#D71920] animate-bounce [animation-delay:-0.3s]"></span>

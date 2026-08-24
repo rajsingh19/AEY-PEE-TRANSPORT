@@ -97,21 +97,6 @@ export default function Navbar({ activePage }: NavbarProps) {
         {/* NAVIGATION ACTIONS (RIGHT) */}
         <div className="nav-actions flex items-center gap-3 sm:gap-4 shrink-0">
 
-          {/* Chatbot Button - Light Bordered Rounded Square */}
-          <button
-            onClick={() => {
-              if (typeof window !== "undefined") {
-                window.dispatchEvent(new CustomEvent("open-aey-pee-chat"));
-              }
-            }}
-            className="action-search flex items-center justify-center w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-xl border border-black/[0.08] hover:bg-black/[0.04] text-[#111827] transition-all duration-300 hover:scale-105 cursor-pointer"
-            aria-label="Chatbot"
-            id="btn-chatbot"
-            title="Chatbot Assistant"
-          >
-            <img src="/chatbot.gif" alt="Chatbot" className="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
-          </button>
-
           {/* Track Now Button - Large Red Rounded Button with Globe */}
           <Link href="/track" className="btn-track-now inline-flex items-center gap-2 bg-[#D71920] hover:bg-[#C90016] text-white py-3 px-6 rounded-lg text-[13.5px] font-bold tracking-[0.5px] shadow-[0_4px_12px_rgba(215,25,32,0.12)] hover:scale-102 hover:shadow-[0_6px_18px_rgba(215,25,32,0.22)] transition-all duration-300" id="btn-track-now">
             <Globe className="w-[18px] h-[18px]" strokeWidth={2.5} />

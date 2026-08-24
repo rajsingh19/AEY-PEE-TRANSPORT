@@ -98,7 +98,17 @@ export default function Navbar({ activePage }: NavbarProps) {
         <div className="nav-actions flex items-center gap-3 sm:gap-4 shrink-0">
 
           {/* Chatbot Button - Light Bordered Rounded Square */}
-          <button className="action-search flex items-center justify-center w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-xl border border-black/[0.08] hover:bg-black/[0.04] text-[#111827] transition-all duration-300 hover:scale-105" aria-label="Chatbot" id="btn-chatbot" title="Chatbot Assistant">
+          <button
+            onClick={() => {
+              if (typeof window !== "undefined") {
+                window.dispatchEvent(new CustomEvent("open-aey-pee-chat"));
+              }
+            }}
+            className="action-search flex items-center justify-center w-12 h-12 sm:w-[50px] sm:h-[50px] rounded-xl border border-black/[0.08] hover:bg-black/[0.04] text-[#111827] transition-all duration-300 hover:scale-105 cursor-pointer"
+            aria-label="Chatbot"
+            id="btn-chatbot"
+            title="Chatbot Assistant"
+          >
             <img src="/chatbot.gif" alt="Chatbot" className="w-10 h-10 sm:w-11 sm:h-11 object-contain" />
           </button>
 

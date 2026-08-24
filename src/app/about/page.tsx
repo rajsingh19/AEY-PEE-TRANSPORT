@@ -18,12 +18,12 @@ export default function AboutPage() {
         The height is set to exactly 38.25vw on desktop so the right 68% column matches the video's original 16:9 ratio.
       */}
       <section 
-        className="relative w-full grid grid-cols-1 lg:grid-cols-[32%_70%] bg-white overflow-hidden z-10 lg:h-[38.25vw]"
+        className="relative w-full grid grid-cols-1 lg:grid-cols-[32%_70%] bg-[#FFF7F7] overflow-hidden z-10 lg:h-[38.25vw]"
         id="about-hero"
       >
         
-        {/* LEFT 32% COLUMN - Clean white background for the text */}
-        <div className="bg-[#FFF5F5] flex items-center p-8 sm:p-12 lg:pl-[8%] lg:pr-6 z-20">
+        {/* LEFT 32% COLUMN - Clean #FFF7F7 background for the text */}
+        <div className="bg-[#FFF7F7] flex items-center p-8 sm:p-12 lg:pl-[8%] lg:pr-6 z-20">
           <div className="w-full flex flex-col justify-center animate-slide-up">
             
             {/* Label and red underline */}
@@ -52,7 +52,7 @@ export default function AboutPage() {
         </div>
 
         {/* RIGHT 70% COLUMN - AP2.mp4 video matching original aspect ratio */}
-        <div className="relative w-full aspect-video lg:aspect-auto bg-white overflow-hidden z-10">
+        <div className="relative w-full aspect-video lg:aspect-auto bg-[#FFF7F7] overflow-hidden z-10">
           <video 
             className="absolute inset-0 w-full h-full object-cover z-0"
             autoPlay 
@@ -62,17 +62,28 @@ export default function AboutPage() {
             preload="auto"
             poster="/fallback_truck.jpg"
             style={{
-                objectPosition: "center center",
-                WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgb(255, 255, 255) 5%)",
-                maskImage: "linear-gradient(to right, transparent 0%, rgb(226, 109, 109) 10%)"
-              }}
+              objectPosition: "center center"
+            }}
           >
             <source src="/AP2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
-          {/* Irregular left blend overlay extending almost 20% across the video column */}
-          
+          {/* Subtle feathered left blend overlay */}
+          <div 
+            className="absolute inset-y-0 left-0 w-full pointer-events-none z-10"
+            style={{
+              background: `linear-gradient(
+                to right,
+                #FFF7F7 0%,
+                #FFF7F7 2%,
+                rgba(255,247,247,0.85) 4%,
+                rgba(255,247,247,0.45) 7%,
+                rgba(255,247,247,0.15) 10%,
+                transparent 13%
+              )`
+            }}
+          />
         </div>
 
       </section>

@@ -35,32 +35,27 @@ style={{
   maxWidth: '480px',
   //height:'500px',
 
-  // Subtle transparent white glass
-  background: `
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.08) 0%,
-      rgba(255, 255, 255, 0.05) 45%,
-      rgba(255, 255, 255, 0.02) 100%
-    )
-  `,
+  // Soft white translucent lighting layer behind the text area of the card
+  background: `radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.78) 35%,
+    rgba(255, 255, 255, 0.48) 65%,
+    rgba(255, 255, 255, 0.18) 100%
+  )`,
 
-  // Moderate blur — keeps the video visible
-  backdropFilter: 'blur(6px)',
-  WebkitBackdropFilter: 'blur(6px)',
+  // Subtle backdrop blur
+  backdropFilter: 'blur(3px)',
+  WebkitBackdropFilter: 'blur(3px)',
 
-  // Thin glossy glass border
-  border: '1px solid rgba(255, 255, 255, 0.38)',
+  // Soft white border
+  border: '1px solid rgba(255, 255, 255, 0.65)',
   borderRadius: '20px',
 
   padding: '50px 40px',
 
-  // Soft shadow + subtle top glossy highlight
-  boxShadow: `
-    0 8px 30px rgba(0, 0, 0, 0.10),
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.08)
-  `,
+  // Subtle shadow
+  boxShadow: '0 12px 35px rgba(0, 0, 0, 0.12)',
 }}
             >
               <div style={{ position: 'relative', zIndex: 2, textShadow: '0 1px 2px rgba(255,255,255,0.25)' }}>
@@ -113,7 +108,7 @@ style={{
         <img
           src="/badge.png"
           alt="20 Years of Trust"
-          className="absolute bottom-[39px] right-[102px] z-40 w-[112px] h-auto drop-shadow-lg pointer-events-none select-none"
+          className="absolute bottom-[39px] right-[102px] z-40 w-[150px] h-auto drop-shadow-lg pointer-events-none select-none"
         />
       </section>
 

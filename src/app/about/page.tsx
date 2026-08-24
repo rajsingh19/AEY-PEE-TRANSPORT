@@ -69,21 +69,41 @@ export default function AboutPage() {
             Your browser does not support the video tag.
           </video>
           
-          {/* Subtle feathered left blend overlay */}
+          {/* Irregular Organic Left Fade Overlays - Tight Edge Spread */}
+          
+          {/* Layer 1: Compact Angled & Multi-Point Radial Feather */}
           <div 
-            className="absolute inset-y-0 left-0 w-full pointer-events-none z-10"
+            className="absolute inset-y-0 left-0 w-[40%] sm:w-[30%] lg:w-[20%] pointer-events-none z-10"
             style={{
-              background: `linear-gradient(
-                to right,
-                #FFF7F7 0%,
-                #FFF7F7 2%,
-                rgba(255,247,247,0.85) 4%,
-                rgba(255,247,247,0.45) 7%,
-                rgba(255,247,247,0.15) 10%,
-                transparent 13%
-              )`
+              background: `
+                linear-gradient(100deg, #FFF7F7 0%, #FFF7F7 8%, rgba(255,247,247,0.85) 20%, rgba(255,247,247,0.3) 45%, transparent 70%),
+                radial-gradient(ellipse 90% 45% at 0% 10%, #FFF7F7 0%, rgba(255,247,247,0.8) 35%, transparent 80%),
+                radial-gradient(ellipse 80% 55% at 0% 90%, #FFF7F7 0%, rgba(255,247,247,0.85) 30%, transparent 75%),
+                radial-gradient(ellipse 70% 35% at 0% 50%, rgba(255,247,247,0.9) 0%, transparent 85%)
+              `
             }}
           />
+
+          {/* Layer 2: Feathered Soft Gaussian Blur Organic Edge */}
+          <svg
+            className="absolute inset-y-0 left-0 h-full w-[40px] sm:w-[70px] lg:w-[95px] text-[#FFF7F7] pointer-events-none z-10 opacity-70"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            fill="currentColor"
+            style={{ filter: "blur(6px)" }}
+          >
+            <path d="M0,0 L50,0 C20,25 70,45 30,70 C15,85 55,95 35,100 L0,100 Z" />
+          </svg>
+
+          {/* Layer 3: Tight Organic Curved Edge */}
+          <svg
+            className="absolute inset-y-0 left-0 h-full w-[30px] sm:w-[50px] lg:w-[70px] text-[#FFF7F7] pointer-events-none z-10 filter drop-shadow-[4px_0_8px_rgba(255,247,247,0.7)]"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            fill="currentColor"
+          >
+            <path d="M0,0 L35,0 C15,25 55,45 22,70 C8,85 40,95 25,100 L0,100 Z" />
+          </svg>
         </div>
 
       </section>

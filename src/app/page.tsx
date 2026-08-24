@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
@@ -18,8 +19,8 @@ export default function HomePage() {
           muted
           loop
           playsInline
-          preload="auto"
-          poster="/fallback_home.jpg"
+          preload="metadata"
+          poster="/fallback_home.webp"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/TRUCK-VIDEO.mp4" type="video/mp4" />
@@ -105,9 +106,12 @@ style={{
         </div>
 
         {/* 20 Years of Trust Badge */}
-        <img
-          src="/badge.png"
+        <Image
+          src="/badge.webp"
           alt="20 Years of Trust"
+          width={150}
+          height={100}
+          sizes="(max-width: 768px) 112px, 150px"
           className="absolute bottom-[39px] right-[102px] z-40 w-[150px] h-auto drop-shadow-lg pointer-events-none select-none"
         />
       </section>

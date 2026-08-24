@@ -46,8 +46,8 @@ export default function TrackPage() {
           background: "linear-gradient(135deg, #fef6f0 0%, #fdf0e9 40%, #e8cfc0 100%)",
         }}>
           <video
-            autoPlay muted loop playsInline preload="auto"
-            poster="/TRACK_FALLBACK.png"
+            autoPlay muted loop playsInline preload="metadata"
+            poster="/TRACK_FALLBACK.webp"
             style={{
               width: "100%",
               height: "100%",

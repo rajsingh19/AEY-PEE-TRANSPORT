@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import { Globe, Menu } from "lucide-react";
@@ -17,9 +18,12 @@ export default function Navbar({ activePage }: NavbarProps) {
 
         {/* LOGO & BRANDING (LEFT) */}
         <Link href="/" className="brand-logo flex items-center gap-3.5 shrink-0" id="nav-brand">
-          <img
-            src="/logo.png?v=3"
+          <Image
+            src="/logo.png"
             alt="Aey-Pee Logo"
+            width={48}
+            height={53}
+            priority
             className="h-[53px] w-[48px] object-contain shrink-0"
           />
           <div className="brand-text flex flex-col justify-center">

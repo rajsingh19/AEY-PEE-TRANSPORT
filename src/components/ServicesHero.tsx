@@ -38,11 +38,10 @@ export default function ServicesHero() {
       {/* RIGHT 68% COLUMN - Services fleet image matching original aspect ratio */}
       <div className="relative w-full aspect-video lg:aspect-auto bg-white overflow-hidden z-10">
         <Image 
-          src="/services_hero.png" 
+          src="/services_hero.webp" 
           alt="Aey-Pee Transport fleet" 
           fill
-          unoptimized
-          sizes="100vw"
+          sizes="(max-width: 1024px) 100vw, 70vw"
           className="object-cover"
           style={{ 
             objectPosition: "center center"

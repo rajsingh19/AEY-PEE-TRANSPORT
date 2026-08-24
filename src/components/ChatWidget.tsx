@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Minus,
@@ -268,9 +269,12 @@ export default function ChatWidget() {
           aria-label="Open Aey-Pee Assistant"
           className="fixed right-5 bottom-5 sm:right-8 sm:bottom-7 z-50 w-[72px] h-[72px] sm:w-[76px] sm:h-[76px] rounded-full bg-white border border-black/[0.08] shadow-[0_8px_30px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_36px_rgba(215,25,32,0.28)] flex items-center justify-center transition-all duration-300 hover:scale-106 active:scale-95 cursor-pointer group"
         >
-          <img
+          <Image
             src="/chatbot.gif"
             alt="Chatbot"
+            width={54}
+            height={54}
+            unoptimized
             className="w-[50px] h-[50px] sm:w-[54px] sm:h-[54px] object-contain transition-transform duration-300 group-hover:scale-110"
           />
         </button>
@@ -290,9 +294,11 @@ export default function ChatWidget() {
             {/* LEFT: Circular Logo & Titles */}
             <div className="flex items-center gap-3.5">
               <div className="w-[46px] h-[46px] sm:w-[50px] sm:h-[50px] rounded-full bg-white flex items-center justify-center p-1 shadow-sm shrink-0 border border-white/20">
-                <img
-                  src="/logo.png?v=3"
+                <Image
+                  src="/logo.png"
                   alt="Aey-Pee Logo"
+                  width={46}
+                  height={50}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -404,7 +410,7 @@ export default function ChatWidget() {
                     <div key={msg.id} className="flex items-start gap-3 max-w-[92%] sm:max-w-[84%] animate-in fade-in slide-in-from-left-2 duration-300">
                       {/* Bot Avatar */}
                       <div className="w-[36px] h-[36px] sm:w-[38px] sm:h-[38px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-red-50 overflow-hidden">
-                        <img src="/chatbot.gif" alt="Chatbot" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
+                        <Image src="/chatbot.gif" alt="Chatbot" width={32} height={32} unoptimized className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
                       </div>
 
                       {/* Bot Message Bubble */}
@@ -444,7 +450,7 @@ export default function ChatWidget() {
               {isTyping && (
                 <div className="flex items-start gap-3 max-w-[80%] animate-in fade-in duration-200">
                   <div className="w-[36px] h-[36px] rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.06)] border border-red-50 overflow-hidden">
-                    <img src="/chatbot.gif" alt="Chatbot" className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
+                    <Image src="/chatbot.gif" alt="Chatbot" width={32} height={32} unoptimized className="w-7 h-7 sm:w-8 sm:h-8 object-contain" />
                   </div>
                   <div className="bg-white rounded-[16px] rounded-tl-sm px-4 py-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-gray-100 flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-[#D71920] animate-bounce [animation-delay:-0.3s]"></span>

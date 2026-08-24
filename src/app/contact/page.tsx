@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { Phone, Building2, MapPin, Mail, Clock, ShieldCheck, ExternalLink } from "lucide-react";
 
@@ -150,9 +151,13 @@ export default function ContactPage() {
 
           {/* Right graphics */}
           <div className="relative w-full h-[200px] sm:h-[250px] lg:h-[310px] flex items-center justify-end overflow-hidden z-10 select-none pointer-events-none">
-            <img 
-              src="/contact_hero_visual.png" 
+            <Image 
+              src="/contact_hero_visual.webp" 
               alt="Aey-Pee Transport routes" 
+              width={1979}
+              height={592}
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="w-auto h-auto max-w-full max-h-full object-contain z-0"
               style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,1) 10%)", maskImage: "linear-gradient(to right, transparent 0%, rgba(255,255,255,1) 10%)" }}
             />

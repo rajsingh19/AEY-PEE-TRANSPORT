@@ -59,8 +59,8 @@ export default function AboutPage() {
             muted 
             loop 
             playsInline 
-            preload="auto"
-            poster="/fallback_truck.jpg"
+            preload="metadata"
+            poster="/fallback_truck.webp"
             style={{
               objectPosition: "center center"
             }}
